@@ -4,7 +4,7 @@ import { PersonalDetails } from '../type';
 type Props = {
   personalDetails: PersonalDetails;
   setPersonalDetails: (pd: PersonalDetails) => void;
-  onPhotoChange?: any;
+  onPhotoChange?: (handleFileChange: File) => void;
 };
 
 const PersonalDetailsForm: React.FC<Props> = ({
@@ -62,7 +62,7 @@ const PersonalDetailsForm: React.FC<Props> = ({
         name="file"
         onChange={(e) => {
           if (e.target.files?.[0]) {
-            onPhotoChange(e.target.files[0]);
+            onPhotoChange && onPhotoChange(e.target.files[0]);
           }
         }}
       />
