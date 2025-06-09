@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, forwardRef, use } from 'react';
+import React, { forwardRef } from 'react';
 import { Education, Experience, Hobby, Language, PersonalDetails, Skill } from '../type';
 import {
   BriefcaseBusiness,
@@ -12,14 +12,12 @@ import {
 
 type Props = {
   personalDetails: PersonalDetails;
-  file: File | null;
   theme?: string;
   experience: Experience[];
   education: Education[]; // Assuming education is not used in this component
   language: Language[];
   skills: Skill[];
   hobbies: Hobby[];
-  download?: boolean;
   ref: React.Ref<HTMLDivElement>;
   setImgLoaded?: any;
 };
@@ -55,18 +53,7 @@ const getStarRating = (proficiency: string) => {
 
 const CVpreview = forwardRef<HTMLDivElement, Props>(
   (
-    {
-      personalDetails,
-      file,
-      theme,
-      experience,
-      education,
-      language,
-      skills,
-      hobbies,
-      download,
-      setImgLoaded,
-    },
+    { personalDetails, theme, experience, education, language, skills, hobbies, setImgLoaded },
     ref
   ) => {
     return (

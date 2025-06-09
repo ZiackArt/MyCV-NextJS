@@ -1,6 +1,5 @@
 'use client';
 import { Eye, Pencil, RotateCcw, Save } from 'lucide-react';
-import Image from 'next/image';
 import PersonalDetailsForm from './../components/PersonalDetailsForm';
 import { useEffect, useRef, useState } from 'react';
 import { Education, Experience, Hobby, Language, PersonalDetails, Skill } from './../type';
@@ -20,12 +19,11 @@ import SkillForm from './../components/SkillForm';
 import HobbyForm from './../components/HobbyForm';
 import html2canvas from 'html2canvas-pro';
 import confetti from 'canvas-confetti';
-import { PDFDocument, rgb } from 'pdf-lib';
 import jsPDF from 'jspdf';
 
 export default function CreateCV() {
   const [personalDetails, setPersonalDetails] = useState<PersonalDetails>(personalDetailsPreset);
-  const [file, setFile] = useState<File | null>(null);
+  // const [file, setFile] = useState<File | null>(null);
   const [theme, setTheme] = useState<string>('garden');
   const [zoom, setZoom] = useState<number>(187);
   const [experience, setExperiences] = useState<Experience[]>(experiencesPreset);
@@ -83,7 +81,6 @@ export default function CreateCV() {
         ...prev,
         photoUrl: e.target?.result as string, // dataURL ici
       }));
-      setFile(file);
     };
     reader.readAsDataURL(file);
   };
@@ -139,10 +136,10 @@ export default function CreateCV() {
   const handleResetLanguage = () => setLanguages([]);
   const handleResetSkill = () => setSkills([]);
   const handleResetHobbie = () => setHobbies([]);
-  // Fonction de débogage pour vérifier l'état des données
-  function breakpoint(_error: any | undefined) {
-    throw new Error(_error);
-  }
+  // // Fonction de débogage pour vérifier l'état des données
+  // function breakpoint(_error: any | undefined) {
+  //   throw new Error(_error);
+  // }
 
   // Fonction pour gérer le téléchargement du CV
   const CvPreviewRef = useRef<HTMLDivElement>(null);
@@ -226,7 +223,6 @@ export default function CreateCV() {
                 <PersonalDetailsForm
                   personalDetails={personalDetails}
                   setPersonalDetails={setPersonalDetails}
-                  setFile={setFile}
                   onPhotoChange={handleFileChange}
                 />
 
@@ -345,14 +341,12 @@ export default function CreateCV() {
             >
               <CVpreview
                 personalDetails={personalDetails}
-                file={file}
                 theme={theme}
                 experience={experience}
                 education={education}
                 language={language}
                 skills={skills}
                 hobbies={hobbies}
-                download={true}
                 ref={CvPreviewRef}
                 setImgLoaded={setImgLoaded}
               />

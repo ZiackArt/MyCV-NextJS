@@ -4,14 +4,12 @@ import { PersonalDetails } from '../type';
 type Props = {
   personalDetails: PersonalDetails;
   setPersonalDetails: (pd: PersonalDetails) => void;
-  setFile: (file: File | null) => void;
   onPhotoChange?: any;
 };
 
 const PersonalDetailsForm: React.FC<Props> = ({
   personalDetails,
   setPersonalDetails,
-  setFile,
   onPhotoChange,
 }) => {
   return (
