@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: all;
+}
+
+.scrollable {
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.scrollable-preview {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100vh;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* globals.css */
+@keyframes slideOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-out-left {
+  animation: slideOutLeft 0.4s forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.4s;
+}
