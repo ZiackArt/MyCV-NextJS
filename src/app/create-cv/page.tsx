@@ -33,7 +33,6 @@ export default function CreateCV() {
   const [hobbies, setHobbies] = useState<Hobby[]>(hobbiesPreset);
 
   // ...states existants...
-  const [imgLoaded, setImgLoaded] = useState(false);
   const [showForm, setShowForm] = useState(true);
   const [formAnimation, setFormAnimation] = useState('');
 
@@ -209,11 +208,7 @@ export default function CreateCV() {
                     <button className="btn btn-primary btn-sm" onClick={handleResetPersonalDetails}>
                       <RotateCcw className=" w-4" />
                     </button>
-                    <button
-                      className="btn btn-secondary btn-sm ml-5"
-                      onClick={handleDownloadCV}
-                      disabled={!imgLoaded}
-                    >
+                    <button className="btn btn-secondary btn-sm ml-5" onClick={handleDownloadCV}>
                       Download
                       <Save className=" w-4" />
                     </button>
@@ -298,7 +293,6 @@ export default function CreateCV() {
                 <button
                   className="btn btn-primary flex items-center justify-center fixed z-[9999] top-38  right-5"
                   onClick={handleDownloadCV}
-                  disabled={!imgLoaded}
                 >
                   Save
                   <Save className=" w-4" />
@@ -348,7 +342,6 @@ export default function CreateCV() {
                 skills={skills}
                 hobbies={hobbies}
                 ref={CvPreviewRef}
-                setImgLoaded={setImgLoaded}
               />
             </div>
           </div>

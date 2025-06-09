@@ -19,7 +19,6 @@ type Props = {
   skills: Skill[];
   hobbies: Hobby[];
   ref: React.Ref<HTMLDivElement>;
-  setImgLoaded?: any;
 };
 
 const getStarRating = (proficiency: string) => {
@@ -52,10 +51,7 @@ const getStarRating = (proficiency: string) => {
 };
 
 const CVpreview = forwardRef<HTMLDivElement, Props>(
-  (
-    { personalDetails, theme, experience, education, language, skills, hobbies, setImgLoaded },
-    ref
-  ) => {
+  ({ personalDetails, theme, experience, education, language, skills, hobbies }, ref) => {
     return (
       <div ref={ref} className={'flex p-16 w-[950px] h-[1200px]'} data-theme={theme}>
         <div className="flex flex-col w-1/3">
@@ -67,7 +63,7 @@ const CVpreview = forwardRef<HTMLDivElement, Props>(
                 width={100}
                 height={100}
                 className="w-full h-full rounded-lg object-cover"
-                onLoad={() => setImgLoaded(true)}
+                // onLoad={() => setImgLoaded(true)}
                 // onLoad={(e) => URL.revokeObjectURL((e.target as HTMLImageElement).src)}
               />
             )}
