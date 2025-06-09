@@ -1,4 +1,5 @@
-import { File, Stamp } from 'lucide-react';
+import { File } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -7,10 +8,10 @@ export default function Home() {
         Bienvenue sur My<span className="text-primary">CV</span>
       </h1>
       <p className="text-xl mb-8">Créez votre CV professionnel en quelques clics</p>
-      <a href="/create-cv" className="btn btn-primary text-bold btn-lg">
+      <Link href="/create-cv" className="btn btn-primary text-bold btn-lg">
         Commencer
         <File />
-      </a>
+      </Link>
     </main>
   );
 }

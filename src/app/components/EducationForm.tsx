@@ -91,5 +91,4 @@ const EducationForm: React.FC<Props> = ({ education, setEducations }) => {
     </div>
   );
 };
-
 export default EducationForm;

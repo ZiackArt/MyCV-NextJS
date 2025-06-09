@@ -9,6 +9,7 @@ import {
   Phone,
   Star,
 } from 'lucide-react';
+import Image from 'next/image';
 
 type Props = {
   personalDetails: PersonalDetails;
@@ -57,14 +58,12 @@ const CVpreview = forwardRef<HTMLDivElement, Props>(
         <div className="flex flex-col w-1/3">
           <div className="h-80 rounded-full border-8 overflow-hidden border-primary">
             {personalDetails.photoUrl && (
-              <img
+              <Image
                 src={personalDetails.photoUrl}
                 alt="Profile"
                 width={100}
                 height={100}
                 className="w-full h-full rounded-lg object-cover"
-                // onLoad={() => setImgLoaded(true)}
-                // onLoad={(e) => URL.revokeObjectURL((e.target as HTMLImageElement).src)}
               />
             )}
           </div>
@@ -231,5 +230,6 @@ const CVpreview = forwardRef<HTMLDivElement, Props>(
     );
   }
 );
-
+// Set display name
+CVpreview.displayName = 'CVpreview';
 export default CVpreview;
