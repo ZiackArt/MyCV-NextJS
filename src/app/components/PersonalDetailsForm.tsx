@@ -61,8 +61,8 @@ const PersonalDetailsForm: React.FC<Props> = ({
         placeholder="Photo de profil"
         name="file"
         onChange={(e) => {
-          if (e.target.files?.[0]) {
-            onPhotoChange && onPhotoChange(e.target.files[0]);
+          if (e.target.files?.[0] && onPhotoChange) {
+            onPhotoChange(e.target.files[0]);
           }
         }}
       />

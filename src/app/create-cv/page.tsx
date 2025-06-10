@@ -20,6 +20,7 @@ import HobbyForm from './../components/HobbyForm';
 import html2canvas from 'html2canvas-pro';
 import confetti from 'canvas-confetti';
 import jsPDF from 'jspdf';
+import Link from 'next/link';
 
 export default function CreateCV() {
   const [personalDetails, setPersonalDetails] = useState<PersonalDetails>(personalDetailsPreset);
@@ -192,9 +193,9 @@ export default function CreateCV() {
             >
               {/* // Zone logo */}
               <div className="mb-4 flex justify-between items-center">
-                <a href="/" className="text-2xl font-bold italic">
+                <Link href="/" className="text-2xl font-bold italic">
                   My<span className="text-primary">CV</span>
-                </a>
+                </Link>
                 <button className="btn btn-primary btn-sm" type="button" onClick={handleToggleForm}>
                   Preview
                   <Eye className="ml-2" />
